@@ -1,5 +1,5 @@
 import { PRODUCT_ADD, PRODUCT_DELETE, PRODUCT_EDIT, PRODUCT_FAILUER, PRODUCT_REQUEST, PRODUCT_SUCCESS } from "./actionType"
-
+import axios from "axios"
 export const loadAction=()=>{
     return {type:PRODUCT_REQUEST}
 }
@@ -19,3 +19,14 @@ export const postAction=(payload)=>{
 export const editAction=(payload)=>{
     return {type:PRODUCT_EDIT,payload}
 }
+
+export const getProduct=(payload)=>(dispatch)=>{
+ axios.get(`http://localhost:9090/Product`)
+ .then((res)=>{
+    console.log(res.data)
+ }).catch((err)=>{
+    console.log(err)
+ })
+
+}
+//1
